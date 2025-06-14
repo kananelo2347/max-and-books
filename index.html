@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAX & BOOKS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      background: #34495e;
+      margin: 0;
+    }
+    .navbar ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .content-section, .cta-section {
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+    .book-cover {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+    .buy-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    .buy-btn:hover {
+      background-color: #219150;
+    }
+    #customer-email {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="banner">
+      <h1>Welcome to MAX & BOOKS</h1>
+      <p>Discover a world of poetry & literature!</p>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="about.html">About the Book</a></li>
+        <li><a href="order.html">Purchase</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+
+      </ul>
+    </nav>
+  </header>
+<div id="confirmation">✅ Your order request has been prepared. Please check your email or WhatsApp to proceed with payment.</div>
+
+  <section id="about" class="content-section">
+    <h2>About the Book</h2>
+    <p>
+      <strong>MAIKUTLO A SERETO</strong> ke bukana ya dithothokiso e keteka letlotlo la setso sa dipuo tsa Sesotho le Sepedi.<br />
+      E bontsha pokello ya dithothokiso tse hlahlobang ditaba tsa batho, lerato, tlhaho le ditaba tsa sechaba.<br />
+      Pokello ena e kopantsitse mesebetsi ya diroki tse nang le talenta e ikhethang ka dipuo tse monate.
+    </p>
+    <img src="cover page.jpg" alt="Cover of 'Maikutlo a Sereto' poetry book" class="book-cover" />
+
+  </section>
+
+  <section id="purchase" class="cta-section">
+    <h2>Order Your Copy Today!</h2>
+    <p><strong>Price:</strong> R100 (PDF copy will be sent to your email or WhatsApp)</p>
+    <input type="email" id="customer-email" placeholder="Enter your email" required />
+    <br />
+    <button onclick="orderByEmail()" class="buy-btn">Order via Email</button>
+    <button onclick="orderByWhatsApp()" class="buy-btn">Order via WhatsApp</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MAX & BOOKS. All rights reserved.</p>
+    <p>Contact: <a href="mailto:maxandbooks5@gmail.com" style="color: #ecf0f1;">maxandbooks5@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function orderByEmail() {
+      const email = document.getElementById("customer-email").value.trim();
+      if (!email || !email.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      const subject = encodeURIComponent("Order: MAIKUTLO A SERETO (PDF Book)");
+      const body = encodeURIComponent(
+        `Hello MAX & BOOKS,
+
+I would like to order a PDF copy of *MAIKUTLO A SERETO*.
+
+📧 My email: ${email}
+💵 Price: R100
+
+Please send me the payment details so I can complete my order.
+
+Thank you!`
+      );
+
+      window.location.href = `mailto:maxandbooks5@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    function orderByWhatsApp() {
+      const email = document.getElementById("customer-email").value.trim();
+      if (!email || !email.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      const message = encodeURIComponent(
+        `Hello, I would like to order a PDF copy of *MAIKUTLO A SERETO*.
+
+📧 My email: ${email}
+💵 Price: R100
+
+Please send payment instructions.`
+      );
+
+      const whatsappNumber = "27814079740"; // Replace with your WhatsApp number
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
